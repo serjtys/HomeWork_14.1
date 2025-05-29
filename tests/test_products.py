@@ -1,5 +1,6 @@
 import pytest
-from src.products import Product, Category
+
+from src.products import Category, Product
 
 
 @pytest.fixture
@@ -28,12 +29,12 @@ def test_category_initialization(sample_category, sample_product):
 
 def test_category_count():
     initial_count = Category.category_count
-    category = Category("Temp Category", "Temp Description", [])
+    _ = Category("Temp Category", "Temp Description", [])  # Используем _ для неиспользуемой переменной
     assert Category.category_count == initial_count + 1
 
 
 def test_product_count():
     initial_count = Category.product_count
     product = Product("Temp Product", "Temp Desc", 50.0, 5)
-    category = Category("Temp Category", "Temp Description", [product])
+    _ = Category("Temp Category", "Temp Description", [product])  # Используем _ для неиспользуемой переменной
     assert Category.product_count == initial_count + 1
